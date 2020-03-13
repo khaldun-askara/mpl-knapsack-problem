@@ -14,6 +14,7 @@ namespace Knapsack_problem_interface
         public string name;
         public int weight;
         public int cost;
+        public bool IsOld = true;
 
         public Item(string name, int weight, int cost)
         {
@@ -31,6 +32,7 @@ namespace Knapsack_problem_interface
 
         public Items()
         {
+            list_of_items = new List<Item>();
         }
 
         public Items(List<Item> lst)

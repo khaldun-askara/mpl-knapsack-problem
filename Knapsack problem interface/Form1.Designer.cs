@@ -82,6 +82,7 @@
             this.dgv_items.RowTemplate.Height = 24;
             this.dgv_items.Size = new System.Drawing.Size(555, 150);
             this.dgv_items.TabIndex = 4;
+            this.dgv_items.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgv_items_RowValidating);
             // 
             // lbl_list
             // 
