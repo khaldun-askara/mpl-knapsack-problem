@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ArrayOfItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Item>
+    <name>Яблочко</name>
+    <weight>3</weight>
+    <cost>5</cost>
+    <IsOld>true</IsOld>
+  </Item>
+  <Item>
+    <name>Груша</name>
+    <weight>2</weight>
+    <cost>6</cost>
+    <IsOld>true</IsOld>
+  </Item>
+  <Item>
+    <name>Банан</name>
+    <weight>2</weight>
+    <cost>5</cost>
+    <IsOld>true</IsOld>
+  </Item>
+  <Item>
+    <name>Фейхоа</name>
+    <weight>1</weight>
+    <cost>10</cost>
+    <IsOld>true</IsOld>
+  </Item>
+</ArrayOfItem>

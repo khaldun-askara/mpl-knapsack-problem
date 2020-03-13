@@ -35,7 +35,7 @@
             this.lbl_list = new System.Windows.Forms.Label();
             this.btn_solver_add = new System.Windows.Forms.Button();
             this.lbl_capasity = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtB_capacity = new System.Windows.Forms.TextBox();
             this.btn_solve = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_items)).BeginInit();
@@ -70,6 +70,7 @@
             this.cmB_select.Name = "cmB_select";
             this.cmB_select.Size = new System.Drawing.Size(327, 24);
             this.cmB_select.TabIndex = 3;
+            this.cmB_select.SelectedIndexChanged += new System.EventHandler(this.cmB_select_SelectedIndexChanged);
             // 
             // dgv_items
             // 
@@ -103,6 +104,7 @@
             this.btn_solver_add.TabIndex = 7;
             this.btn_solver_add.Text = "Добавить алгоритм";
             this.btn_solver_add.UseVisualStyleBackColor = true;
+            this.btn_solver_add.Click += new System.EventHandler(this.btn_solver_add_Click);
             // 
             // lbl_capasity
             // 
@@ -114,13 +116,14 @@
             this.lbl_capasity.TabIndex = 8;
             this.lbl_capasity.Text = "Вместимость рюкзака:";
             // 
-            // textBox1
+            // txtB_capacity
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Location = new System.Drawing.Point(427, 265);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 22);
-            this.textBox1.TabIndex = 9;
+            this.txtB_capacity.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtB_capacity.Location = new System.Drawing.Point(427, 265);
+            this.txtB_capacity.Name = "txtB_capacity";
+            this.txtB_capacity.Size = new System.Drawing.Size(141, 22);
+            this.txtB_capacity.TabIndex = 9;
+            this.txtB_capacity.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btn_solve
             // 
@@ -131,15 +134,18 @@
             this.btn_solve.TabIndex = 10;
             this.btn_solve.Text = "Найти ответ";
             this.btn_solve.UseVisualStyleBackColor = true;
+            this.btn_solve.Click += new System.EventHandler(this.btn_solve_Click);
             // 
             // btn_save
             // 
+            this.btn_save.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_save.Location = new System.Drawing.Point(532, 388);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(150, 23);
             this.btn_save.TabIndex = 11;
             this.btn_save.Text = "Сохранить список";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // frm_knapsack_problem_interface
             // 
@@ -148,7 +154,7 @@
             this.ClientSize = new System.Drawing.Size(809, 653);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_solve);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtB_capacity);
             this.Controls.Add(this.lbl_capasity);
             this.Controls.Add(this.btn_solver_add);
             this.Controls.Add(this.lbl_list);
@@ -173,7 +179,7 @@
         private System.Windows.Forms.Label lbl_list;
         private System.Windows.Forms.Button btn_solver_add;
         private System.Windows.Forms.Label lbl_capasity;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtB_capacity;
         private System.Windows.Forms.Button btn_solve;
         private System.Windows.Forms.Button btn_save;
     }

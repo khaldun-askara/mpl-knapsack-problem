@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Knapsack;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -55,6 +56,14 @@ namespace Knapsack_problem_interface
         public void Delete(int id)
         {
             list_of_items.RemoveAt(id);
+        }
+
+        public (int[], int[]) GetArrays()
+        {
+            int[] weights = list_of_items.Select(n => n.weight).ToArray();
+            int[] costs = list_of_items.Select(n => n.cost).ToArray();
+
+            return (weights, costs);
         }
     }
 }
