@@ -65,7 +65,9 @@
             // cmB_select
             // 
             this.cmB_select.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cmB_select.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmB_select.FormattingEnabled = true;
+            this.cmB_select.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmB_select.Location = new System.Drawing.Point(241, 220);
             this.cmB_select.Name = "cmB_select";
             this.cmB_select.Size = new System.Drawing.Size(327, 24);

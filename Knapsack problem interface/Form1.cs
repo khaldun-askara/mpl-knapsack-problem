@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+//using KnapsackProblem.Implementation.FSharp;
 
 namespace Knapsack_problem_interface
 {
@@ -134,9 +135,12 @@ namespace Knapsack_problem_interface
                                     int.Parse(intCells.Item1.Value.ToString()),
                                     int.Parse(intCells.Item2.Value.ToString()));
             else
+            {
                 list_of_items.Add(curr_row.Cells["name"].Value.ToString(),
-                                    int.Parse(intCells.Item1.Value.ToString()),
-                                    int.Parse(intCells.Item2.Value.ToString()));
+                                      int.Parse(intCells.Item1.Value.ToString()),
+                                      int.Parse(intCells.Item2.Value.ToString()));
+                curr_row.Cells["isOld"].Value = list_of_items.list_of_items[curr_row.Index].IsOld;
+            }
         }
         private void btn_save_Click(object sender, EventArgs e)
         {
@@ -184,16 +188,16 @@ namespace Knapsack_problem_interface
                 MessageBox.Show("Выбрана некорректная библиотека");
                 return;
             }
-            //try
-            //{
-            //    Assembly a = Assembly.LoadFile(dlg.FileName);
-            //    types = a.ExportedTypes.ToArray();
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Выбрана некорректная библиотека");
-            //    return;
-            //}
+            try
+            {
+                Assembly a = Assembly.LoadFile(dlg.FileName);
+                types = a.ExportedTypes.ToArray();
+            }
+            catch
+            {
+                MessageBox.Show("Выбрана некорректная библиотека");
+                return;
+            }
             foreach (var t in types)
             {
                 if (t.GetInterface("ISolver") == null)
@@ -203,8 +207,10 @@ namespace Knapsack_problem_interface
                 {
                     var solver = constr.Invoke(new object[0]) as ISolver;
                     if (solver != null)
+                    {
                         cmB_select.Items.Add(new ComboBoxItem(solver));
-                    return;
+                        return;
+                    }
                 }
             }
             MessageBox.Show("В библиотеке нет подходящего класса");
@@ -220,6 +226,10 @@ namespace Knapsack_problem_interface
             int capacity = int.Parse(txtB_capacity.Text);
             var solver = ((ComboBoxItem)cmB_select.SelectedItem).solver;
             bool[] result = solver.Solve(capacity, list_of_items.GetArrays().Item1, list_of_items.GetArrays().Item2);
+            //ISolver solver = new MySuperSolver();
+            //string str = solver.GetName();
+            //bool[] result = solver.Solve(capacity, list_of_items.GetArrays().Item1, list_of_items.GetArrays().Item2);
+            Color_dgv(result);
         }
     }
 

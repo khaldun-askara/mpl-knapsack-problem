@@ -7,6 +7,14 @@ namespace Tests
 {
     public class SearchTest
     {
+
+        [Test]
+        public void OrangeTest()
+        {
+            ISolver searcher = new ExhaustiveSearch();
+            var res = searcher.Solve(11, new int[] { 3, 2, 2, 1, 9, 9, 9 }, new int[] { 5, 6, 15, 10, 90, 92, 91 });
+            Assert.AreEqual(res, new bool[] { false, false, true, false, true, true, true });
+        }
         [Test]
         public void SimpleTest()
         {

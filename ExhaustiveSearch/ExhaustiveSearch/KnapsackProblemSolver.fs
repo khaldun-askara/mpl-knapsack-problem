@@ -16,7 +16,7 @@ type public ExhaustiveSearch() =
             let rec _solve capacity weights costs result costsSum =
                 match weights, costs with
                 [], [] | _, [] | [], _ -> (result, costsSum)
-                | (w::weights_tail), (c::costs_tail) when (capacity-w) = 0 -> (_solve capacity weights_tail costs_tail (result @ [true]) (costsSum+c))
+                //| (w::weights_tail), (c::costs_tail) when (capacity-w) = 0 -> (_solve (capacity-w) weights_tail costs_tail (result @ [true]) (costsSum+c))
                 | (w::weights_tail), (c::costs_tail) when (capacity-w) < 0 -> (_solve capacity weights_tail costs_tail (result @ [false]) costsSum)
                 | (w::weights_tail), (c::costs_tail) -> 
                     let moreProfitable (res1, sum1) (res2, sum2) =
